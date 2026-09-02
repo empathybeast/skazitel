@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { publicUrl } from "@/lib/base-url";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Сказитель";
@@ -19,7 +20,7 @@ export const Route = createRootRoute({
       { name: "theme-color", content: "#1c1914" },
     ],
     links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "icon", type: "image/svg+xml", href: publicUrl("/favicon.svg") },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -31,8 +32,8 @@ export const Route = createRootRoute({
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
+      { rel: "manifest", href: publicUrl("/__grok/manifest.webmanifest") },
+      { rel: "apple-touch-icon", href: publicUrl("/__grok/icon-180.png") },
     ],
   }),
   component: () => (
