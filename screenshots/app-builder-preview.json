@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Сказитель",
+      "hasCanvas": false,
+      "bodyTextLen": 547,
+      "bodyTextHash": "3538a28877d4f5d5ab7458a66883df07a995c31a399ab312b20b7efbcd407b9d",
+      "bodyTextPrefix": "МАСТЕРСКАЯ ПЕРСОНАЖА Сказитель Шесть граней одной души — род, де",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Сказитель",
+      "hasCanvas": false,
+      "bodyTextLen": 527,
+      "bodyTextHash": "23260cd5285db56f7a5f5ddc771dfc9eef39967e072445f7b8fc970b6cd77406",
+      "bodyTextPrefix": "МАСТЕРСКАЯ ПЕРСОНАЖА Сказитель Шесть граней одной души — род, де",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

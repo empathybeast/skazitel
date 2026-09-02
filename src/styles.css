@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  --color-willow: #6d7865;
+  --color-spicy: #816643;
+  --color-quincy: #573f29;
+  --color-jambalaya: #612714;
+  --color-mongoose: #bca87b;
+
+  --color-desk: #1c1914;
+  --color-desk-mid: #573f29;
+  --color-leather: #816643;
+  --color-page: #d9cba8;
+  --color-page-edge: #bca87b;
+  --color-page-dark: #bca87b;
+  --color-ink: #573f29;
+  --color-ink-soft: #816643;
+  --color-ink-faint: #8a7a5c;
+  --color-rule: #bca87b;
+  --color-oxblood: #612714;
+  --color-oxblood-deep: #4a1d0f;
+  --color-cream: #e8dcc4;
+  --color-sage: #6d7865;
+  --color-binding: #573f29;
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.25rem;
+  --shadow-book:
+    0 1px 0 color-mix(in oklab, var(--color-mongoose) 45%, transparent),
+    0 24px 48px -16px rgba(0, 0, 0, 0.55),
+    0 0 0 1px color-mix(in oklab, var(--color-quincy) 45%, transparent);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body {
+    background: var(--color-desk);
+    color: var(--color-ink);
+    min-height: 100%;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-jambalaya) 28%, var(--color-page));
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .desk {
+    background-color: var(--color-desk);
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -8%, color-mix(in oklab, var(--color-willow) 38%, transparent) 0%, transparent 58%),
+      radial-gradient(ellipse 42% 36% at 100% 100%, color-mix(in oklab, var(--color-quincy) 55%, transparent) 0%, transparent 52%),
+      radial-gradient(ellipse 40% 32% at 0% 85%, color-mix(in oklab, var(--color-spicy) 40%, transparent) 0%, transparent 50%),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.045) 3px,
+        rgba(0, 0, 0, 0.045) 4px
+      );
+  }
+
+  .codex {
+    background: var(--color-page);
+    box-shadow: var(--shadow-book);
+    position: relative;
+  }
+
+  .codex::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+  }
+
+  .leaf {
+    position: relative;
+    background-image:
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--color-quincy) 16%, transparent) 0%,
+        color-mix(in oklab, var(--color-spicy) 6%, transparent) 10%,
+        transparent 22%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--color-mongoose) 35%, transparent) 0%,
+        transparent 14%,
+        transparent 86%,
+        color-mix(in oklab, var(--color-willow) 10%, transparent) 100%
+      );
+  }
+
+  .leaf-left {
+    background-image:
+      linear-gradient(
+        270deg,
+        color-mix(in oklab, var(--color-quincy) 18%, transparent) 0%,
+        color-mix(in oklab, var(--color-spicy) 7%, transparent) 12%,
+        transparent 24%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--color-mongoose) 30%, transparent) 0%,
+        transparent 16%
+      );
+  }
+
+  .rule-double {
+    height: 5px;
+    border-top: 1px solid var(--color-ink);
+    border-bottom: 1px solid var(--color-ink);
+    opacity: 0.5;
+  }
+
+  .letterpress {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-variant: small-caps;
+    font-variant-caps: small-caps;
+  }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-size: 3.1rem;
+    line-height: 0.8;
+    padding-right: 0.35rem;
+    padding-top: 0.15rem;
+    color: var(--color-jambalaya);
+    font-weight: 600;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-page {
+  animation: fade-up 350ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fade-page > * {
+  animation: fade-up 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fade-page > *:nth-child(1) { animation-delay: 0ms; }
+.fade-page > *:nth-child(2) { animation-delay: 40ms; }
+.fade-page > *:nth-child(3) { animation-delay: 80ms; }
+.fade-page > *:nth-child(4) { animation-delay: 120ms; }
+.fade-page > *:nth-child(5) { animation-delay: 160ms; }
+.fade-page > *:nth-child(6) { animation-delay: 200ms; }
+.fade-page > *:nth-child(7) { animation-delay: 240ms; }
+.fade-page > *:nth-child(8) { animation-delay: 280ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-page,
+  .fade-page > * {
+    animation: none;
+  }
+}
